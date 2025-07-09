@@ -1,12 +1,22 @@
 import React from 'react';
-import { Button } from 'react-bootstrap';
 
-const LanguageToggle = ({ language, setLanguage }) => {
+export default function LanguageToggle({ selectedLanguage, onChange }) {
   return (
-    <Button variant="outline-primary" size="sm" onClick={() => setLanguage(prev => prev === 'en' ? 'fr' : 'en')}>
-      {language === 'en' ? 'Français' : 'English'}
-    </Button>
+    <div className="btn-group" role="group" aria-label="Language toggle">
+      <button
+        type="button"
+        className={`btn btn-outline-primary ${selectedLanguage === 'en' ? 'active' : ''}`}
+        onClick={() => onChange('en')}
+      >
+        English
+      </button>
+      <button
+        type="button"
+        className={`btn btn-outline-primary ${selectedLanguage === 'fr' ? 'active' : ''}`}
+        onClick={() => onChange('fr')}
+      >
+        Français
+      </button>
+    </div>
   );
-};
-
-export default LanguageToggle;
+}

@@ -1,26 +1,14 @@
 import React from 'react';
-import { Container, Navbar, Row, Col } from 'react-bootstrap';
 import LanguageToggle from './LanguageToggle';
+import { translations } from './Translations';
 
-const Header = ({ title, language, setLanguage }) => {
+export default function Header({ selectedLanguage, setSelectedLanguage }) {
   return (
-    <Navbar bg="light" className="py-3 border-bottom">
-      <Container>
-        <Row className="w-100 align-items-center text-center">
-          <Col xs="auto" className="text-start">
-            <LanguageToggle language={language} setLanguage={setLanguage} />
-          </Col>
-
-          <Col className="text-center">
-            <h1 className="header-title m-0">{title}</h1>
-          </Col>
-          <Col xs="auto" className="invisible">
-            <LanguageToggle language={language} setLanguage={setLanguage} />
-          </Col>
-        </Row>
-      </Container>
-    </Navbar>
+    <header className="d-flex align-items-center justify-content-center position-relative mb-4 mt-4">
+      <h1 className="m-0 text-center w-100">{translations.title[selectedLanguage]}</h1>
+      <div className="position-absolute top-0 end-0 pe-5 pt-2">
+        <LanguageToggle selectedLanguage={selectedLanguage} onChange={setSelectedLanguage} />
+      </div>
+    </header>
   );
-};
-
-export default Header;
+}
