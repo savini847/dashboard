@@ -13,7 +13,7 @@ export const translations = {
     },
 
     barChartTitle: {
-      en: "University Enrollment Comparison",
+      en: "University Enrollment Per Year",
       fr: "Comparaison des inscriptions universitaires"
     },
 
@@ -122,7 +122,25 @@ export const translations = {
       schoolYearLabel: {
         en: "School year:",
         fr: "Année scolaire :"
+      },
+
+      //homepage
+
+      homepage: {
+        selectGraph: {
+          en: "Select a graph!",
+          fr: "Sélectionnez un graphique !"
+        },
+        lineGraphCard: {
+          en: "Line Chart",
+          fr: "Graphique en lignes"
+        },
+        barGraphCard: {
+          en: "Bar Chart",
+          fr: "Graphique à barres"
+        }
       }
+
     }
   };
 

@@ -1,29 +1,37 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { translations } from './Translations';
+import '../App.css';
 
-export default function Homepage({ language }) {
-  const navigate = useNavigate();
-
+export default function Homepage({ selectedLanguage }) {
   return (
-    <div className="container text-center mt-5">
-      <h1>{translations.homepage.title[language]}</h1>
-      <p>{translations.homepage.subtitle[language]}</p>
+    <div className="homepage-container d-flex flex-column align-items-center justify-content-start" style={{ minHeight: '80vh', paddingTop: '2rem' }}>
+      <h2 className="mb-5">
+        {translations.helperText.homepage.selectGraph[selectedLanguage]}
+      </h2>
 
-      <div className="d-flex justify-content-center gap-3 mt-4">
-        <button 
-          className="btn btn-primary"
-          onClick={() => navigate('/line-chart')}
-        >
-          {translations.homepage.lineChartButton[language]}
-        </button>
+      <div className="d-flex gap-5 justify-content-center flex-wrap">
+        {/* Line Graph Card */}
+        <Link to="/line-dashboard" className="graph-card text-decoration-none text-center">
+          <div className="card-text mb-2 fs-4 fw-semibold">
+            {translations.helperText.homepage.lineGraphCard[selectedLanguage]}
+          </div>
+          <div className="text-muted mb-3" style={{ fontSize: '0.95rem' }}>
+            {translations.lineChartTitle[selectedLanguage]}
+          </div>
+          <img src="/line.png" alt="Line Chart" className="card-image" />
+        </Link>
 
-        <button 
-          className="btn btn-secondary"
-          onClick={() => navigate('/bar-chart')}
-        >
-          {translations.homepage.barChartButton[language]}
-        </button>
+        {/* Bar Graph Card */}
+        <Link to="/bar-dashboard" className="graph-card text-decoration-none text-center">
+          <div className="card-text mb-2 fs-4 fw-semibold">
+            {translations.helperText.homepage.barGraphCard[selectedLanguage]}
+          </div>
+          <div className="text-muted mb-3" style={{ fontSize: '0.95rem' }}>
+            {translations.barChartTitle[selectedLanguage]}
+          </div>
+          <img src="/bar.png" alt="Bar Chart" className="card-image" />
+        </Link>
       </div>
     </div>
   );
