@@ -14,7 +14,7 @@ import { translations } from './Translations';
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
-export default function BarChart({ universities, data, year, years, language, fullNames }) {
+export default function BarChart({ universities, data, year, years, language, fullNames, selectedColor }) {
   const yearIndex = years.indexOf(year);
   const values = universities.map((uni) => data[uni][yearIndex]);
 
@@ -24,7 +24,7 @@ export default function BarChart({ universities, data, year, years, language, fu
       {
         label: translations.barChartLabel(year, language),
         data: values,
-        backgroundColor: 'rgba(54, 162, 235, 0.7)'
+        backgroundColor: selectedColor
       }
     ]
   };
@@ -32,7 +32,14 @@ export default function BarChart({ universities, data, year, years, language, fu
   const options = {
     responsive: true,
     plugins: {
-      legend: { position: 'top' },
+      legend: {
+        position: 'top',
+        labels: {
+          textDecoration: 'none',
+          cursor: 'default',
+        },
+        onClick: null
+      },
       title: { display: false }
     },
     scales: {

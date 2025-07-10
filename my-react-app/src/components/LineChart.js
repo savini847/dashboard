@@ -11,28 +11,47 @@ import {
   Legend
 } from 'chart.js';
 
+import { universityColors } from './Dataset';
+
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
-export default function LineChart({ years, data, label }) {
+export default function LineChart({
+  years,
+  data,
+  selectedUniversities,
+  fullNames,
+  language,
+}) {
+  const datasets = selectedUniversities.map((uni) => ({
+    label: fullNames[uni][language],
+    data: data[uni],
+    borderColor: universityColors[uni],
+    backgroundColor: universityColors[uni] + '88',
+    tension: 0.3,
+    fill: true
+  }));
+
   const chartData = {
     labels: years,
-    datasets: [
-      {
-        label,
-        data,
-        borderColor: 'rgb(75, 192, 192)',
-        backgroundColor: 'rgba(75, 192, 192, 0.2)',
-        tension: 0.3,
-        fill: true
-      }
-    ]
+    datasets
   };
 
   const options = {
     responsive: true,
     plugins: {
-      legend: { position: 'top' },
-      title: { display: false }
+      legend: {
+        position: 'top',
+        onClick: () => null, 
+        labels: {
+          usePointStyle: true,
+          font: {
+            lineWidth: 0
+          }
+        }
+      },
+      title: {
+        display: false
+      }
     },
     scales: {
       y: {

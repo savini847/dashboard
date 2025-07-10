@@ -1,4 +1,3 @@
-
 export const years = ["2012/2013", "2013/2014", "2014/2015", "2015/2016", "2016/2017", "2017/2018", "2018/2019", "2019/2020", "2020/2021", "2021/2022"];
 
 export const enrollmentData = {
@@ -10,3 +9,11 @@ export const enrollmentData = {
 };
 
 export const universityNames = ["uOttawa", "Carleton", "UofT", "Queens", "Waterloo"];
+
+export const universityColors = {
+    uOttawa: "#ff6384", // pink
+    Carleton: "#36a2eb", // blue
+    UofT: "#ffce56", // yellow
+    Queens: "#4bc0c0", // teal
+    Waterloo: "#9966ff" // purple
+  };
