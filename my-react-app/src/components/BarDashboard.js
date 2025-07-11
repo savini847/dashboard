@@ -12,6 +12,7 @@ export default function BarDashboard({ selectedLanguage }) {
   return (
     <section className="mb-5">
       <h2>{translations.barChartTitle[selectedLanguage]}</h2>
+      <h6>{translations.enrolmentInfo[selectedLanguage]}</h6>
 
       <section className="mb-4 text-center">
         <div className="d-flex justify-content-center align-items-center gap-2">

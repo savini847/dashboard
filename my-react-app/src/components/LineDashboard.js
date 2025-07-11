@@ -11,6 +11,7 @@ export default function LineDashboard({ selectedLanguage }) {
   return (
     <section className="mb-5 text-center">
       <h2>{translations.lineChartTitle[selectedLanguage]}</h2>
+      <h6>{translations.enrolmentInfo[selectedLanguage]}</h6>
 
       <UniversityFilter
         universities={universityNames}
