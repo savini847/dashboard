@@ -25,7 +25,6 @@ export default function UniversityFilter({
   return (
     <>
 
-
       <div className="text-center mb-2 mt-4">
         <small className="form-text text-muted">
           {translations.helperText.selectUniversities[language]}
